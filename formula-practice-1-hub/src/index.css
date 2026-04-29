@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-racing-red: #e10600;
+  --color-racing-black: #0f0f12;
+  --color-racing-dark: #0a0a0c;
+  --color-racing-card: #1a1a1d;
+  --color-racing-border: #2d2d30;
+  --color-racing-silver: #9ca3af;
+}
+
+@layer base {
+  body {
+    @apply bg-racing-black text-white font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight uppercase;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-racing-card border border-racing-border rounded-sm overflow-hidden transition-all duration-200;
+  }
+
+  .accent-card {
+    @apply bg-racing-card border-l-4 border-racing-red p-6 rounded-sm shadow-xl;
+  }
+
+  .racing-table {
+    @apply w-full text-left border-collapse;
+  }
+
+  .racing-table th {
+    @apply py-2 px-4 bg-[#242428] text-gray-500 font-display text-[9px] uppercase tracking-[0.2em] border-b border-racing-border;
+  }
+
+  .racing-table td {
+    @apply py-3 px-4 border-b border-racing-border text-xs;
+  }
+
+  .racing-table tr:nth-child(even) {
+    @apply bg-[#222226]/30;
+  }
+
+  .racing-table tr:hover td {
+    @apply bg-white/5;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-2.5 bg-racing-red hover:bg-red-700 text-white font-display text-sm font-bold uppercase transition-all duration-200 active:scale-95 rounded-sm;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-2.5 border border-racing-border bg-racing-dark hover:bg-[#1a1a1d] text-white font-display text-sm font-bold uppercase transition-all duration-200 active:scale-95 rounded-sm;
+  }
+
+  .sidebar-item-active {
+    @apply flex items-center gap-3 px-3 py-2.5 bg-racing-red rounded-sm text-sm font-bold uppercase transition-all;
+  }
+}
+
